@@ -26,37 +26,37 @@ The project contains following features:
 - Play the game (hosted on the URL given by developer) 
 - See game high scores while playing
 
-##Game Service Interaction
+###Game Service Interaction
 
 Game and the game service communicate with window.postMessage. All the messages must contain a messageType attribute, which can be one of six things:
 
-  ###SCORE
+####SCORE
 
   sent from the game to the service, informing of a new score submission
   the message must also contain score attribute
 
-  ###SAVE
+####SAVE
 
   Sent from the game to the service, the service should now store the sent game state
   the message must also contain gameState attribute, containing game specific state information
   You can assume that the gameState is serializable by JSON.stringify
 
-  ###LOAD_REQUEST
+####LOAD_REQUEST
 
   Sent from the game to the service, requesting that a game state (if there is one saved) is sent from the service to the game
   The service will either respond with LOAD or  ERROR
 
-  ###LOAD
+####LOAD
 
   Sent from the service to the game
   Must contain gameState attribute, which has the game specific state to be loaded
 
-  ###ERROR
+####ERROR
 
   Sent from the service to the game
   Must contain info attribute, which contains textual information to be relayed to the user on what went wrong
 
-  ###SETTING
+####SETTING
 
   Sent from the game to the service once the game finishes loading
   Must contain options attribute, which tells game specific configuration to the service. This is mainly used to adjust the   layout in the service by providing a desired resolution in pixels, see examples for details.
